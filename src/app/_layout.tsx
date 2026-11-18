@@ -1,5 +1,6 @@
 import { useFonts } from "expo-font";
 import { Slot } from "expo-router";
+import { StatusBar } from "expo-status-bar";
 
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 
@@ -24,6 +25,7 @@ const RootLayout = () => {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <QueryClientProvider client={queryClient}>
+        <StatusBar style="dark" />
         <Slot />
       </QueryClientProvider>
     </GestureHandlerRootView>

@@ -1,5 +1,7 @@
 import { Image, Linking, StyleSheet, Text, View } from "react-native";
 
+import { LinearGradient } from "expo-linear-gradient";
+
 import Animated, { FadeInDown } from "react-native-reanimated";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -8,6 +10,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { Fonts } from "@/constants/theme";
 
 import SocialAuthButton from "@/components/auth/SocialAuthButton";
+import SmoothInfiniteScroll from "@/components/SmoothInfiniteScroll";
 import woltLogoImg from "@/assets/images/wolt-logo.png";
 
 const HomeScreen = () => {
@@ -16,8 +19,28 @@ const HomeScreen = () => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.infiniteScrollContainer}></View>
+    <SafeAreaView style={styles.container} edges={["bottom"]}>
+      <View style={styles.infiniteScrollContainer}>
+        <View>
+          <SmoothInfiniteScroll scrollDirection="down" iconSet="set1" />
+        </View>
+        <View>
+          <SmoothInfiniteScroll scrollDirection="up" iconSet="set2" />
+        </View>
+        <View>
+          <SmoothInfiniteScroll scrollDirection="down" iconSet="set3" />
+        </View>
+        <LinearGradient
+          colors={["transparent", "#fff"]}
+          style={{
+            position: "absolute",
+            height: 100,
+            left: 0,
+            bottom: 0,
+            right: 0,
+          }}
+        />
+      </View>
       <View style={styles.contentContainer}>
         <Image source={woltLogoImg} style={styles.brandLogo} />
         <Animated.Text entering={FadeInDown} style={styles.tagLine}>
@@ -74,13 +97,13 @@ export default HomeScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingVertical: 10,
+    paddingBottom: 10,
   },
   contentContainer: {
     flex: 1,
     alignItems: "center",
     paddingHorizontal: 30,
-    paddingVertical: 20,
+    paddingTop: 20,
   },
   brandLogo: {
     width: 120,
@@ -91,7 +114,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontFamily: Fonts["brandBlack"],
     textAlign: "center",
-    marginBottom: 50,
+    marginBottom: 30,
   },
   buttonContainer: {
     gap: 12,
@@ -112,6 +135,12 @@ const styles = StyleSheet.create({
     textDecorationLine: "underline",
   },
   infiniteScrollContainer: {
-    flex: 0.6,
+    flex: 0.8,
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: 4,
+    position: "relative",
+    overflow: "hidden",
   },
 });
