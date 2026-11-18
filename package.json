@@ -5,6 +5,7 @@
   "dependencies": {
     "@expo-google-fonts/nunito": "^0.4.2",
     "@expo/ui": "~58.0.29",
+    "@expo/vector-icons": "^15.0.2",
     "@tanstack/react-query": "^5.108.0",
     "expo": "~58.0.26",
     "expo-constants": "~58.0.16",
@@ -13,6 +14,7 @@
     "expo-glass-effect": "~58.0.5",
     "expo-haptics": "~58.0.8",
     "expo-image": "~58.0.18",
+    "expo-linear-gradient": "~58.0.4",
     "expo-linking": "~58.0.17",
     "expo-router": "~58.0.32",
     "expo-splash-screen": "~58.0.14",
@@ -36,6 +38,8 @@
   "devDependencies": {
     "@ianvs/prettier-plugin-sort-imports": "^4.7.1",
     "@types/react": "~19.3.0",
+    "eslint": "^9.0.0",
+    "eslint-config-expo": "~58.0.4",
     "typescript": "~6.0.3"
   },
   "scripts": {
