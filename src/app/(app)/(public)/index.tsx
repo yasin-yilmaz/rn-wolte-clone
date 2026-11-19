@@ -1,6 +1,7 @@
 import { Image, Linking, StyleSheet, Text, View } from "react-native";
 
 import { LinearGradient } from "expo-linear-gradient";
+import { Link } from "expo-router";
 
 import Animated, { FadeInDown } from "react-native-reanimated";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -67,12 +68,14 @@ const HomeScreen = () => {
             />
           </Animated.View>
           <Animated.View entering={FadeInDown.delay(300)}>
-            <SocialAuthButton
-              title="Other options"
-              style={{ backgroundColor: "#f0f0f0" }}
-              textStyle={{ color: "#666" }}
-              onPress={() => {}}
-            />
+            <Link href="/(app)/(public)/other-options" asChild>
+              <SocialAuthButton
+                title="Other options"
+                style={{ backgroundColor: "#f0f0f0" }}
+                textStyle={{ color: "#666" }}
+                onPress={() => {}}
+              />
+            </Link>
           </Animated.View>
         </View>
       </View>
