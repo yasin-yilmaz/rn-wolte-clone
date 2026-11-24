@@ -1,14 +1,15 @@
-import { restaurantService } from '@/services/restaurantService';
-import { useQuery } from '@tanstack/react-query';
+import { useQuery } from "@tanstack/react-query";
+
+import { restaurantService } from "@/services/restaurantService";
 
 /**
  * Hook to fetch all restaurants
  */
 export const useRestaurants = () => {
   return useQuery({
-    queryKey: ['restaurants'],
+    queryKey: ["restaurants"],
     queryFn: async () => {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      await new Promise((resolve) => setTimeout(resolve, 3000));
       return restaurantService.getAll();
     },
   });
@@ -19,7 +20,7 @@ export const useRestaurants = () => {
  */
 export const useRestaurant = (id: string) => {
   return useQuery({
-    queryKey: ['restaurant', id],
+    queryKey: ["restaurant", id],
     queryFn: () => restaurantService.getById(id),
     enabled: !!id,
   });
@@ -30,7 +31,7 @@ export const useRestaurant = (id: string) => {
  */
 export const useRestaurantMarkers = () => {
   return useQuery({
-    queryKey: ['restaurant-markers'],
+    queryKey: ["restaurant-markers"],
     queryFn: restaurantService.getMarkers,
   });
 };

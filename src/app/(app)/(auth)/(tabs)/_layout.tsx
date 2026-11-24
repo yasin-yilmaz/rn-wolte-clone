@@ -9,7 +9,7 @@ const TabsLayout = () => {
         headerShown: false,
         tabBarLabelStyle: {
           fontSize: 9,
-          fontWeight: "700",
+          fontWeight: "600",
         },
       }}
     >
