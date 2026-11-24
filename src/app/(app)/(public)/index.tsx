@@ -8,7 +8,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 import { Ionicons } from "@expo/vector-icons";
 
-import { Fonts } from "@/constants/theme";
+import { Colors, Fonts } from "@/constants/theme";
 
 import SocialAuthButton from "@/components/auth/SocialAuthButton";
 import SmoothInfiniteScroll from "@/components/SmoothInfiniteScroll";
@@ -72,7 +72,7 @@ const HomeScreen = () => {
               <SocialAuthButton
                 title="Other options"
                 style={{ backgroundColor: "#f0f0f0" }}
-                textStyle={{ color: "#666" }}
+                textStyle={{ color: Colors["muted"] }}
                 onPress={() => {}}
               />
             </Link>

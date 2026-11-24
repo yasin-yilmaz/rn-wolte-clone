@@ -64,6 +64,6 @@ const styles = StyleSheet.create({
   },
   categoryPlaces: {
     fontSize: 12,
-    color: "#666",
+    color: Colors["muted"],
   },
 });

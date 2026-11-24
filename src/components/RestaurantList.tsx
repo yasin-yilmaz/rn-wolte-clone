@@ -8,8 +8,6 @@ import {
   View,
 } from "react-native";
 
-import { Link } from "expo-router";
-
 import { Ionicons } from "@expo/vector-icons";
 
 import { Colors } from "@/constants/theme";
@@ -17,7 +15,7 @@ import { Colors } from "@/constants/theme";
 import { useRestaurants } from "@/hooks/useRestaurants";
 
 const RestaurantLIst = () => {
-  const { data: restaurants = [], isLoading, error } = useRestaurants();
+  const { data: restaurants = [], isLoading } = useRestaurants();
 
   if (isLoading)
     return (
@@ -39,7 +37,11 @@ const RestaurantLIst = () => {
               </Text>
             </View>
             <View style={styles.metadata}>
-              <Ionicons name="bicycle-outline" size={16} color="#666" />
+              <Ionicons
+                name="bicycle-outline"
+                size={16}
+                color={Colors["muted"]}
+              />
               <Text style={styles.metadataText}>
                 ${item.deliveryFee.toFixed(2)}
               </Text>
@@ -48,7 +50,11 @@ const RestaurantLIst = () => {
                 ${item.deliveryFee.toFixed(2)}
               </Text>
               <Text style={styles.dot}>-</Text>
-              <Ionicons name="happy-outline" size={16} color="#666" />
+              <Ionicons
+                name="happy-outline"
+                size={16}
+                color={Colors["muted"]}
+              />
             </View>
           </TouchableOpacity>
         </View>
@@ -84,7 +90,7 @@ const styles = StyleSheet.create({
   },
   desription: {
     fontSize: 14,
-    color: "#666",
+    color: Colors["muted"],
   },
   metadata: {
     borderTopColor: Colors["light"],
@@ -96,7 +102,7 @@ const styles = StyleSheet.create({
   },
   metadataText: {
     fontSize: 13,
-    color: "#666",
+    color: Colors["muted"],
   },
   dot: {
     color: "#999",
