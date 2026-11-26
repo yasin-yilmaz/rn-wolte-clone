@@ -34,7 +34,21 @@
           "imageWidth": 76
         }
       ],
-      "expo-font"
+      // [
+      //   "expo-maps",
+      //   {
+      //     "requestLocationPermission": true,
+      //     "locationPermission": "Allow $(PRODUCT_NAME) to use your location"
+      //   }
+      // ],
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow $(PRODUCT_NAME) to use your location."
+        }
+      ],
+      "expo-font",
+      "@maplibre/maplibre-react-native"
     ],
     "experiments": {
       "typedRoutes": true,
