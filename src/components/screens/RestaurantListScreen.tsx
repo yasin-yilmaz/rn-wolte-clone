@@ -19,8 +19,6 @@ const RestaurantListScreen = () => {
 
   const scrollHandler = useAnimatedScrollHandler({
     onScroll: (event) => {
-      console.log(event.contentOffset.y);
-
       scrollOffset.value = event.contentOffset.y;
     },
   });
