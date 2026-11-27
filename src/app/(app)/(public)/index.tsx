@@ -83,7 +83,7 @@ const HomeScreen = () => {
       <Button
         title="Try!"
         onPress={() => {
-          Sentry.captureException(new Error("First error"));
+          Sentry.captureException(new Error("second error"));
         }}
       />
       <Animated.View
