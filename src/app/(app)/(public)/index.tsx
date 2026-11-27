@@ -1,4 +1,4 @@
-import { Image, Linking, StyleSheet, Text, View } from "react-native";
+import { Button, Image, Linking, StyleSheet, Text, View } from "react-native";
 
 import { LinearGradient } from "expo-linear-gradient";
 import { Link } from "expo-router";
@@ -7,6 +7,7 @@ import Animated, { FadeInDown } from "react-native-reanimated";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { Ionicons } from "@expo/vector-icons";
+import * as Sentry from "@sentry/react-native";
 
 import { Colors, Fonts } from "@/constants/theme";
 
@@ -79,6 +80,12 @@ const HomeScreen = () => {
           </Animated.View>
         </View>
       </View>
+      <Button
+        title="Try!"
+        onPress={() => {
+          Sentry.captureException(new Error("First error"));
+        }}
+      />
       <Animated.View
         style={styles.privacyContainer}
         entering={FadeInDown.delay(400)}

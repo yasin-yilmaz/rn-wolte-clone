@@ -43,6 +43,7 @@ const AuthLayout = () => {
           },
         }}
       />
+      <Stack.Screen name="(modal)/map" options={{ headerShown: false }} />
     </Stack>
   );
 };
