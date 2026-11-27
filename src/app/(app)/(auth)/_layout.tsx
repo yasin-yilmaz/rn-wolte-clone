@@ -1,50 +1,29 @@
-import { TouchableOpacity } from "react-native";
-
-import { Stack, useRouter } from "expo-router";
-
-import { Ionicons } from "@expo/vector-icons";
+import Transition from "react-native-screen-transitions";
+import { BlankStack } from "react-native-screen-transitions/expo-router";
 
 const AuthLayout = () => {
-  const router = useRouter();
-
   return (
-    <Stack>
-      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-      <Stack.Screen
+    <BlankStack>
+      <BlankStack.Screen name="(tabs)" />
+      <BlankStack.Screen
+        name="(modal)/(restaurant)/[id]"
+        options={Transition.Presets.DraggableCard()}
+      />
+      <BlankStack.Screen
         name="(modal)/locations"
-        options={{
-          presentation: "formSheet",
-          sheetAllowedDetents: [0.7],
-          title: "",
-          sheetCornerRadius: 16,
-          sheetGrabberVisible: true,
-          headerRight: () => (
-            <TouchableOpacity onPress={() => router.dismiss()}>
-              <Ionicons name="close-sharp" size={28} />
-            </TouchableOpacity>
-          ),
-        }}
+        options={Transition.Presets.SlideFromTop()}
       />
-      <Stack.Screen
+
+      <BlankStack.Screen
         name="(modal)/filter"
-        options={{
-          presentation: "formSheet",
-          sheetAllowedDetents: [0.8],
-          title: "",
-          sheetCornerRadius: 16,
-          sheetGrabberVisible: true,
-          headerRight: () => (
-            <TouchableOpacity onPress={() => router.dismiss()}>
-              <Ionicons name="close-sharp" size={28} />
-            </TouchableOpacity>
-          ),
-          contentStyle: {
-            backgroundColor: "#fff",
-          },
-        }}
+        options={Transition.Presets.SlideFromTop()}
       />
-      <Stack.Screen name="(modal)/map" options={{ headerShown: false }} />
-    </Stack>
+
+      <BlankStack.Screen
+        name="(modal)/map"
+        options={Transition.Presets.SlideFromBottom()}
+      />
+    </BlankStack>
   );
 };
 

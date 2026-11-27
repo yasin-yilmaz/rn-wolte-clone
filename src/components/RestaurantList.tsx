@@ -8,6 +8,8 @@ import {
   View,
 } from "react-native";
 
+import { Link } from "expo-router";
+
 import { Ionicons } from "@expo/vector-icons";
 
 import { Colors } from "@/constants/theme";
@@ -28,35 +30,37 @@ const RestaurantLIst = () => {
     <>
       {restaurants.map((item) => (
         <View key={item.id}>
-          <TouchableOpacity style={styles.card}>
-            <Image source={item.image as ImageSource} style={styles.image} />
-            <View style={styles.info}>
-              <Text style={styles.title}>{item.name}</Text>
-              <Text style={styles.desription} numberOfLines={2}>
-                {item.description}
-              </Text>
-            </View>
-            <View style={styles.metadata}>
-              <Ionicons
-                name="bicycle-outline"
-                size={16}
-                color={Colors["muted"]}
-              />
-              <Text style={styles.metadataText}>
-                ${item.deliveryFee.toFixed(2)}
-              </Text>
-              <Text style={styles.dot}>-</Text>
-              <Text style={styles.metadataText}>
-                ${item.deliveryFee.toFixed(2)}
-              </Text>
-              <Text style={styles.dot}>-</Text>
-              <Ionicons
-                name="happy-outline"
-                size={16}
-                color={Colors["muted"]}
-              />
-            </View>
-          </TouchableOpacity>
+          <Link href={`(modal)/(restaurant)/${item.id}`} asChild>
+            <TouchableOpacity style={styles.card}>
+              <Image source={item.image as ImageSource} style={styles.image} />
+              <View style={styles.info}>
+                <Text style={styles.title}>{item.name}</Text>
+                <Text style={styles.desription} numberOfLines={2}>
+                  {item.description}
+                </Text>
+              </View>
+              <View style={styles.metadata}>
+                <Ionicons
+                  name="bicycle-outline"
+                  size={16}
+                  color={Colors["muted"]}
+                />
+                <Text style={styles.metadataText}>
+                  ${item.deliveryFee.toFixed(2)}
+                </Text>
+                <Text style={styles.dot}>-</Text>
+                <Text style={styles.metadataText}>
+                  ${item.deliveryFee.toFixed(2)}
+                </Text>
+                <Text style={styles.dot}>-</Text>
+                <Ionicons
+                  name="happy-outline"
+                  size={16}
+                  color={Colors["muted"]}
+                />
+              </View>
+            </TouchableOpacity>
+          </Link>
         </View>
       ))}
     </>
