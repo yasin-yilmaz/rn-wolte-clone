@@ -23,12 +23,12 @@ Sentry.init({
   enableLogs: true,
 
   // Configure Session Replay
-  replaysSessionSampleRate: 0.1,
+  replaysSessionSampleRate: 1,
   replaysOnErrorSampleRate: 1,
   integrations: [Sentry.mobileReplayIntegration()],
 
   // uncomment the line below to enable Spotlight (https://spotlightjs.com)
-  // spotlight: __DEV__,
+  spotlight: __DEV__,
 });
 
 const queryClient = new QueryClient();
@@ -52,4 +52,4 @@ const RootLayout = () => {
   );
 };
 
-export default RootLayout;
+export default Sentry.wrap(RootLayout);
