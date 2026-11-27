@@ -8,6 +8,10 @@ import {
   View,
 } from "react-native";
 
+import { useRouter } from "expo-router";
+
+import { Ionicons } from "@expo/vector-icons";
+
 import { Colors, Fonts } from "@/constants/theme";
 
 const cuisineFilters = [
@@ -34,6 +38,8 @@ const sortOptions = [
 ];
 
 const FilterModal = () => {
+  const router = useRouter();
+
   const [selectedCuisines, setSelectedCuisines] = useState<string[]>([]);
   const [selectedPrice, setSelectedPrice] = useState<string | null>(null);
   const [woltPlusOnly, setWoltPlusOnly] = useState(false);
@@ -49,7 +55,13 @@ const FilterModal = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Filter</Text>
+      <View style={styles.header}>
+        <Text style={styles.title}>Filter</Text>
+
+        <TouchableOpacity onPress={() => router.dismiss()} hitSlop={12}>
+          <Ionicons name="close-sharp" size={28} color="#000" />
+        </TouchableOpacity>
+      </View>
 
       {/* Cuisine Filters */}
       <View style={styles.filterSection}>
@@ -157,6 +169,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 20,
+    paddingTop: 16,
+    backgroundColor: "#fff",
+  },
+  header: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: 24,
   },
   title: {
     fontFamily: Fonts.brandBold,
