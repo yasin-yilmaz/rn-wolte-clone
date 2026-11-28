@@ -29,6 +29,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { Colors } from "@/constants/theme";
 
 import MenuItem from "@/components/MenuItem";
+import RestaurantDetailHeader from "@/components/RestaurantDetailHeader";
 import { useMenu } from "@/hooks/useMenu";
 import { useRestaurant } from "@/hooks/useRestaurants";
 import { Dish } from "@/data/restaurant_menu";
@@ -131,6 +132,8 @@ const RestaurantDetailModal = () => {
       />
 
       <Animated.View style={[styles.whiteOverlay, overlayStyle]} />
+
+      <RestaurantDetailHeader scrollOffset={scrollOffset} />
 
       <AnimatedSectionList
         ref={sectionListRef}
